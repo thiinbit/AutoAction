@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Auto Action</title>
+    <style>
+    body {
+        font-family: 'Lantinghei SC', 'Open Sans', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', 微软雅黑, STHeiti, 'WenQuanYi Micro Hei', SimSun, Helvetica, sans-serif;
+    }
+    input {
+        margin-bottom: 8px; 
+    }
+
+    .content-wrap {
+        width: 215px;
+        padding: 7px 13px;
+    }
+    
+    .content-wrap>div {
+        margin: 8px 0;
+    }
+    
+    .content-wrap hr {
+        border: 1px dashed #999;        
+    }
+    
+    .custom-area span {
+        color: #666;
+        cursor: pointer;
+    }
+    
+    .input-area {}
+    
+    .input-keyval input {
+        display: inline;
+        width: 92px;
+    }
+    
+    .input-keyval span {
+        padding: 0 5px;
+    }
+    
+    .param {
+        width: 35px;
+    }
+    
+    .add-img {
+        margin-left: 8px;
+    }
+    h3, h5 {
+        margin-bottom: 0;
+        text-align: center;
+    }
+    h5 {
+        margin-top: 2px;
+    }
+
+    .custom-area2 {
+        display: none;
+    }
+    .custom-area2 textarea{
+        width: 204px;
+        height: 73px;
+        border: 1px solid #ccc;
+        color: #666;
+    }
+    #savebtn {
+        width: 100%;
+        height: 21px;
+    }
+
+
+    </style>
+    <script src="content_script.js"></script>
+</head>
+
+<body>
+    <h3>Auto Action</h3>
+    <h5>Run custom action when a url open!</h5>
+    <div class="content-wrap">
+        <div>
+            <label class="param">Trigger URL:</label>
+            <input id="trigerurl" name="url" 
+            placeholder="localhost|| w.com|| web">
+        </div> 
+        <div>
+            <label class="param">Action Type:</label>
+            <select id="action-selector">
+                <option value="SUB_FORM">Submit Form</option>
+                <option value="CUSTOM">Custom</option>
+            </select>
+        </div>
+        <hr>
+        <div class="custom-area">
+            <div class="input-area">
+                Target URL: 
+                <input id="targeturl" style="width: 129px;" name="targeturl"
+                placeholder="http://url/path || ./path">
+                <div class="input-keyval">
+                    <input name="aa_name0" placeholder="Param Name"><span>:</span><input name="aa_value0" placeholder="Param Value">
+                </div>
+            </div>
+            <span id="addbtn"><Strong> + </Strong>Add parameter...</span>
+        </div>
+        <div class="custom-area2">
+            <textarea id="csscr">
+alert("Hello World!");
+console.log("You can write Js here!");
+console.log("You can use jQuery!", $);
+            </textarea>
+        </div>
+        <hr>
+        <button id="savebtn">Save</button> 
+    </div>
+</body>
+<script src="jQuery.js"></script>
+<script src="popup.js"></script>
+</html>
